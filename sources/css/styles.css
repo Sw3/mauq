@@ -1,0 +1,112 @@
+	/*eliminación de margenes del body*/
+	body {
+		margin: 0px;
+		overflow-x: hidden;
+		font-family: korinna_btregular, sans-serif;
+  		font-size: 11pt;
+  		color: #303030;
+	}	
+
+A:link {text-decoration:none;color:#303030;} 
+
+
+A:visited {text-decoration:none;color:#303030;} 
+
+
+A:active {text-decoration:none;color:#303030;} 
+
+
+A:hover {text-decoration:underline;color:#303030;} 
+	/*Contenedor del logo Mauq y botones de area personal*/
+	#header{
+		text-align: center;
+		width: 100%;
+		height: 106px;
+	}
+	/*Contenedor de la imagen del logo en el header*/
+	#logo{		
+		display:inline-block;
+	}
+	/*Contenedor del menu de navegacion del usuario*/
+	#menu{
+		text-align: center;
+		border: 1px solid #00A99D;
+		background-color: #AAE2E0;
+		width: 100%;
+		height: 23px;
+	}
+	/*Contenedor de botones de menu*/
+	#menubar{
+		display:inline-block;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	/*Contenedor de boton de menu*/
+	.menuItem{
+		float: left;
+		padding-top: 3px;
+		text-align: center;
+		background-color: #AAE2E0;
+		width: 175px;
+		height: 100%;
+		cursor: pointer;
+	}
+	/*Contenedor de la informacion de la plataforma software*/
+	#trabajo{
+		text-align: center;
+		width: 100%;
+	
+	}
+	/*Contenedor de la informacion de la plataforma software*/
+	#footer{
+		margin-top: 20px;
+		border-top: 4px solid #00A99D;
+		bottom: 0%;
+		background-color: #303030;
+		width: 100%;
+		height: 51px;
+		position: relative;
+		text-align: center;
+	}
+	/*Contenedor de primer cuadro de datos de formulario*/
+	#panel1{
+		display:inline-block;
+		padding: 14px;
+		margin-top: 10px;
+		width: 750px;
+		background-color: #FBFBFB;
+		border-left: 3px solid #00A99D;
+		text-align: left;
+	}
+
+	#educacioncontent{
+		-webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+		display:inline-block;
+		margin-top: 10px;
+		width: 750px;
+		text-align: left;
+	}
+	.Nuevorecurso{
+		width: 100%;
+		margin-bottom: 50px;
+		border-left: 2px solid #00A99D;
+		padding: 15px;
+		padding-top: 15px;
+	}
+	.leftp{
+		padding-left: 50px;
+		padding-right: 50px;
+		display:inline-block;
+		float: left;
+		text-align: center;
+		margin-top: 5px;
+		color: white;
+		font: 9.5pt/1.1 korinna_btregular;
+		font-weight: lighter ;
+	}
+	#cent{
+		display:inline-block;
+	}
