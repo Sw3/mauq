@@ -11,8 +11,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script type="text/javascript" src="<?php echo base_url();?>
 	sources/Jquery/main.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>
-	sources/Jquery/admin.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>
 	sources/Jquery/publico.js"></script>
 	<title>Mauq</title>
 	<style type="text/css">	
@@ -79,7 +77,7 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 		<div class="pup">
 		<br />
 		<br />
-	<center><form method="POST" action="<?php echo base_url(); ?>/index.php/admin/cajon" enctype="multipart/form-data"><table>
+	<center><form method="POST" action="<?php echo base_url(); ?>/index.php/Publico/cajon" enctype="multipart/form-data"><table>
 				<tr>
 					<th>Nombre del cajón</th>
 					<th>Descripción</th>

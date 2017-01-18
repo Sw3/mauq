@@ -325,3 +325,18 @@ A:hover {text-decoration:underline;color:#303030;}
 	position:relative;
 	top:1px;
 }
+.editRecurso{
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	background-color: #EEEEEE;
+	border: 2px solid #4E4E4E;
+	position: fixed;
+	top: 50%;
+	right: 50%;
+	transform: translateY(50%);
+	transform: translateX(50%);
+	z-index: 4;
+	padding: 10px;
+	
+}

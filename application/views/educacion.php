@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script type="text/javascript" src="<?php echo base_url();?>
 	sources/Jquery/main.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>
-	sources/Jquery/admin.js"></script>
+	sources/Jquery/educacion.js"></script>
 	<title>Mauq</title>
 	<style type="text/css">	
 
@@ -71,49 +71,31 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 		</div>
 		<h3>Administrar recursos actuales</h2>
 		<div class="Nuevorecurso" id="tablarecs"> 
-			 <table >
-			    <tr>
-			      <td>Nombre</td>
-			      <td>Descripción</td>
-			      <td>Ubicación</td>
-			      <td>Visible</td>
-			      <td>fecha</td>
-			      <td></td>
-			      <td></td>
-
-			    </tr>
-			    <tr>
-			      <td>Libro Mariposas</td>
-			      <td>Libro para niños de primaria</td>
-			      <td>/lib1.pdf</td>
-			      <td><input type="checkbox" name="act" id="act" />
-			      <label for="act"></label></td>
-			      <td>19/09/2016</td>
-			      <td><a class="myButton">Eliminar</a></td>
-			      <td><a class="edit_btn">Editar</a></td>
-			    </tr>
-			    <tr>
-			      <td>Libro Cucarrones</td>
-			      <td>Libro para niños de secundaria</td>
-			      <td>/lib2.pdf</td>
-			      <td><input type="checkbox" name="act2" id="act2" />
-			        <label for="act2"></label></td>
-			      <td>1/09/2016</td>
-			      <td><input type="submit" name="Eliminar2" id="Eliminar3" value="Eliminar" /></td>
-			      <td><input type="submit" name="Editar" id="Editar" value="Editar" /></td>
-			    </tr>
-			    <tr>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			    </tr>
-			  </table>
+			
 		</div>
 	</div>
+	</div>
+
+	<div class="editRecurso">
+		
+		
+			<table>
+			    <tr>
+			      <td width="163"><label for="NomRec">Nombre del recuso</label></td>
+			      <td width="296"><input type="text" name="EdNomRec" id="NomRec" /></td>
+			    </tr>
+			    <tr>
+			      <td><label for="decrec">Descripción del recurso</label></td>
+			      <td><textarea name="decrec" id="Eddecrec" cols="45" rows="5"></textarea></td>
+			    </tr>
+			    
+			    <tr>
+			      <td></td>
+			      <td><a class="edit_btn"> Guardar Cambios</a><a class="edit_btn" id="cancel"> Cancelar</a></td>
+			    </tr>
+			 </table>
+			 
+		
 	</div>
 	<div id="footer" name='<?php echo base_url(); ?>'>
 		<div id="cent">

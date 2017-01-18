@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script type="text/javascript" src="<?php echo base_url();?>
 	sources/Jquery/main.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>
-	sources/Jquery/admin.js"></script>
+	sources/Jquery/NuevoEspecimen.js"></script>
 	<title>Mauq</title>
 
 	<style type="text/css">	

@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+$(".pup").hide();
+$("#sombra").hide();
 var IP= $("#footer").attr("name");
 //Acciones para el submenu
 	$(".sec").hide();
@@ -30,11 +32,11 @@ $("#p4").click(function(){
 //carga las gavetas
 		getGavetas();
 		function getGavetas(){
-			$.post( IP+"index.php/admin/getGavetas").done(function(data){
+			$.post( IP+"index.php/Publico/getGavetas").done(function(data){
 			$("#gavs").html(data);
 			//creacion de gavetas
 			$("#nvgvt").bind("click", function(){
-				$.post( IP+"index.php/admin/crearGaveta").done(function(data){
+				$.post( IP+"index.php/Publico/crearGaveta").done(function(data){
 					getGavetas();
 				});
 			});
@@ -46,7 +48,7 @@ $("#p4").click(function(){
 				if(func == "nvcajon"){
 					var gaveta = $(this).attr("gv");
 					gaveta = gaveta*100;
-					$.post( IP+"index.php/admin/agregarCajon", {1: gaveta}).done(function(data){
+					$.post( IP+"index.php/Publico/agregarCajon", {1: gaveta}).done(function(data){
 						getGavetas();
 						});
 				}
@@ -54,7 +56,7 @@ $("#p4").click(function(){
 					var gaveta = $(this).attr("gv");
 					gaveta = gaveta*100;
 					alert("alerta eliminacion");
-					$.post( IP+"index.php/admin/EliminarGaveta", {1: gaveta}).done(function(data){
+					$.post( IP+"index.php/Publico/EliminarGaveta", {1: gaveta}).done(function(data){
 						getGavetas();
 						});
 				}
@@ -62,7 +64,7 @@ $("#p4").click(function(){
 				if(func == "elcaj"){
 					var cajon = $(this).attr("cj");
 					alert("alerta eliminacion");
-					$.post( IP+"index.php/admin/eliminarCajon", {1: cajon}).done(function(data){
+					$.post( IP+"index.php/Publico/eliminarCajon", {1: cajon}).done(function(data){
 						getGavetas();
 						});
 				}
