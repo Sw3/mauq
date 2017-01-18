@@ -6,13 +6,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>
 	sources/css/styles.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>
+	sources/css/busqueda.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>
 	sources/Jquery/main.js"></script>
-		<script type="text/javascript" src="<?php echo base_url();?>
+	<script type="text/javascript" src="<?php echo base_url();?>
 	sources/Jquery/admin.js"></script>
 	<title>Mauq</title>
-
 	<style type="text/css">	
 
 	@font-face {
@@ -27,24 +28,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 h3 { font-family: 'korinna_btregular', arial, serif; }
 
 	</style>
-
 </head>
 <body>
 	<div id="header">
 	<div id="logo"><img src="<?php echo base_url();?>sources/images/logo.jpg"></div>
 	</div>
 	<div id="menu">
-		<div id="menubar">
-			<a href="<?php echo base_url(); ?>index.php/welcome/index"><div class="menuItem">Nuevo Especimen</div></a>
-			<a href="<?php echo base_url(); ?>index.php/welcome/educacion"><div class="menuItem">Búsqueda</div></a>
-			<a href="<?php echo base_url(); ?>index.php/welcome/educacion"><div class="menuItem">Educación</div></a>
+			<div id="menubar">
+				<a href="<?php echo base_url(); ?>index.php/welcome/registro"><div class="menuItem">Nuevo Especimen</div></a>
+				<a href="<?php echo base_url(); ?>index.php/welcome/busqueda"><div class="menuItem">Búsqueda</div></a>
+				<a href="<?php echo base_url(); ?>index.php/welcome/educacion"><div class="menuItem">Educación</div></a>
+				<a href="<?php echo base_url(); ?>index.php/welcome/publico"><div class="menuItem">Información pública</div></a>
+				<a href="<?php echo base_url(); ?>index.php/welcome/reportes"><div class="menuItem">Reportes</div></a>
+			</div>
 		</div>
-	</div>
 	<div id="trabajo">
 	<div id="educacioncontent">
 		
 			<h3>Ingresar nuevo recurso educativo</h2>
 		<div class="Nuevorecurso"> 
+		<form method="POST" action="<?php echo base_url(); ?>index.php/admin/nuevoRecurso" enctype="multipart/form-data">
 			<table>
 			    <tr>
 			      <td width="163"><label for="NomRec">Nombre del recuso</label></td>
@@ -57,24 +60,27 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 			    <tr>
 			      <td>Recurso</td>
 			      <td><input type="file" name="recurso" id="recurso" /></td>
+			       <input name="action" type="hidden" value="upload" />
 			    </tr>
 			    <tr>
 			      <td></td>
-			      <td><input type="button" value="Ingresar" name=""></td>
+			      <td><input type="submit" value="Ingresar" name=""></td>
 			    </tr>
 			 </table>
+			 </form>
 		</div>
 		<h3>Administrar recursos actuales</h2>
-		<div class="Nuevorecurso"> 
+		<div class="Nuevorecurso" id="tablarecs"> 
 			 <table >
 			    <tr>
-			      <td>Enalce</td>
 			      <td>Nombre</td>
 			      <td>Descripción</td>
+			      <td>Ubicación</td>
 			      <td>Visible</td>
-			      <td>fecha de modificacion</td>
-			      <td>Eliminar</td>
-			      <td>Editar</td>
+			      <td>fecha</td>
+			      <td></td>
+			      <td></td>
+
 			    </tr>
 			    <tr>
 			      <td>Libro Mariposas</td>
@@ -83,8 +89,8 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 			      <td><input type="checkbox" name="act" id="act" />
 			      <label for="act"></label></td>
 			      <td>19/09/2016</td>
-			      <td><input type="submit" name="Eliminar" id="Eliminar" value="Eliminar" /></td>
-			      <td><input type="submit" name="Editar" id="Editar" value="Editar" /></td>
+			      <td><a class="myButton">Eliminar</a></td>
+			      <td><a class="edit_btn">Editar</a></td>
 			    </tr>
 			    <tr>
 			      <td>Libro Cucarrones</td>
@@ -109,7 +115,7 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 		</div>
 	</div>
 	</div>
-	<div id="footer">
+	<div id="footer" name='<?php echo base_url(); ?>'>
 		<div id="cent">
 			<div class="leftp">
 			Universidad del Quindío<br>
@@ -119,7 +125,7 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 			<div class="leftp">
 				Conmutador (6) 746 01 11 Ext.147<br>
 				www.uniquindio.edu.co<br>
-				E-mail: pbiologia@uniquindio.edu.co | amgiraldo@uniquindio.edu.com
+				E-mail: pbiologia@uniquindio.edu.co | amgiraldo@uniquindio.edu.co
 			</div>
 		</div>
 	</div>

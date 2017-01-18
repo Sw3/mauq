@@ -77,7 +77,7 @@ $tnsname = '(DESCRIPTION = (ADDRESS=(PROTOCOL = TCP)(HOST = 127.0.0.1)(PORT=1521
 
 $db['default']['hostname']=$tnsname;
 $db['default']['username']='MAUQ';
-$db['default']['password']='MAUQ2016';
+$db['default']['password']='12345';
 $db['default']['database']='MAUQ';
 $db['default']['dbdriver']='oci8';
 $db['default']['dbprefix']='';

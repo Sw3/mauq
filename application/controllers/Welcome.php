@@ -22,12 +22,77 @@ class Welcome extends CI_Controller {
 	{	
 		$this->load->database();
 		$this->load->helper('url');
+			$this->load->database();
+		$this->load->view('inicio');
+	}
+
+	public function registro()
+	{	
+		$this->load->database();
+		$this->load->helper('url');
+			$this->load->database();
 		$this->load->view('index');
 	}
-		public function educacion()
+			public function busqueda()
+	{	
+ 
+		$this->load->database();
+		$this->load->helper('url');
+		$this->load->view('busqueda');
+	}		
+			public function educacion()
 	{	
 		$this->load->database();
 		$this->load->helper('url');
 		$this->load->view('educacion');
+	}
+			public function publico()
+	{	
+ 
+		$this->load->database();
+		$this->load->helper('url');
+		$this->load->view('publico');
+	}
+			public function reportes()
+	{	
+ 
+		$this->load->database();
+		$this->load->helper('url');
+		$this->load->view('reportes');
+	}
+			public function inicio()
+	{	
+ 
+		$this->load->database();
+		$this->load->helper('url');
+		$this->load->view('inicio');
+	}
+			public function museo()
+	{	
+ 
+		$this->load->database();
+		$this->load->helper('url');
+		$this->load->view('museo');
+	}
+			public function explora()
+	{	
+ 
+		$this->load->database();
+		$this->load->helper('url');
+		$this->load->view('explora');
+	}
+			public function donaciones()
+	{	
+ 
+		$this->load->database();
+		$this->load->helper('url');
+		$this->load->view('donaciones');
+	}
+			public function visitas()
+	{	
+ 
+		$this->load->database();
+		$this->load->helper('url');
+		$this->load->view('visitas');
 	}
 }
