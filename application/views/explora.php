@@ -54,6 +54,12 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 	<div  class="direccion" id="izq"> > </div>
 	<a href="<?php echo base_url(); ?>index.php/welcome/registro"> <div class="lgin">Iniciar sesion</div></a>
 	</div>
+
+
+
+	<div class="sombra"> </div>
+	<img src="<?php echo base_url(); ?>/Exp/mauq-10.jpg" id="imgGaveta"> 
+
 	<div id="footer" name='<?php echo base_url(); ?>'>
 		<div id="cent">
 			<div class="leftp">

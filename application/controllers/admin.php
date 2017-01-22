@@ -125,7 +125,7 @@ class admin extends CI_Controller
 		$this->load->database();
 		$this->db->order_by('ORD', 'asc');
 		$query = $this->db->get('GAVETAS');
-		
+		$numCajon = 0;
 		$gavetaActual = 1;
 		echo '<table id="tb">
 		<tr>
@@ -134,6 +134,7 @@ class admin extends CI_Controller
 		<div class="gaveta"> ';
 		foreach ($query->result() as $key) {
 			if((int)(($key->ORD)/100)>$gavetaActual){
+				$numCajon = 1;
 				echo '</div>
 						</div>
 						</td>
@@ -142,11 +143,12 @@ class admin extends CI_Controller
 				echo '<td><div class="abt">
 						<div class="abrir" id="g'.$gavetaActual.'"></div>
 						<div class="gaveta"> 
-						<div class="cajon" name="'.$key->NUM_CAJON.'" g="g'.$gavetaActual.'">'.$key->NOM.'</div>';
+						<div class="cajon" img="'.$key->FOTO.'" name="'.$numCajon.'" g="g'.$gavetaActual.'">'.$key->NOM.'</div>';
 			
 			
 			}else{
-				echo '<div class="cajon" name="'.$key->NUM_CAJON.'"  g="g'.$gavetaActual.'">'.$key->NOM.'</div>'; //agrega un cajon a la gaveta actual
+				$numCajon++;
+				echo '<div class="cajon" img="'.$key->FOTO.'" name="'.$numCajon.'"  g="g'.$gavetaActual.'">'.$key->NOM.'</div>'; //agrega un cajon a la gaveta actual
 			}
 		}
 		echo '</div>
