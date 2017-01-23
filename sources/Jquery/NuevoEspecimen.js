@@ -98,7 +98,49 @@ $(document).ready(function(){
 		});
 		//Funcion que envía los datos del registro
 		$("#fin").click(function(){
-	
+			var foto ="";
+		if($("input[name=file]").val()!=""){
+			var formData = new FormData($("#formulario")[0]);
+			var ruta = IP+"index.php/admin/upload";
+				$.ajax({
+					url: ruta,
+					type: "POST",
+					data: formData,
+					contentType: false,
+					processData: false,
+				}).done(function(data){
+					foto = data;
+					$.post( IP+"index.php/admin/registrar",
+			 {1:$("#Acreditacion").val(),
+			 2:$("#idRegBio").val(),
+			 3:$("#NumCat").val(),
+			 4:$("#Preparaciones").val(),
+			 5:$("#NomColector").val(),
+			 6:$("#IdentificadoPor").val(),
+			 7:$("#fecha").val(),
+			 8:$("#pais").val(),
+			 9:$("#depto").val(),
+			 10:$("#mun").val(),
+			 11:$("#loc").val(),
+			 12:$("#lat").val(),
+			 13:$("#lon").val(),
+			 14:$("#elevmin").val(),
+			 15:$("#elevmax").val(),
+			 16:$("#catt").val(),
+			 17:$("#num").val(),
+			 18:$("#clase").val(),
+			 19:$("#ord").val(),
+			 20:$("#fam").val(),
+			 21:$("#gen").val(),
+			 22:$("#ep").val(),
+			 23:foto
+			} ).done(function(data){
+				alert(data);
+				location.reload();
+
+			});
+				});
+		}else{
 			$.post( IP+"index.php/admin/registrar",
 			 {1:$("#Acreditacion").val(),
 			 2:$("#idRegBio").val(),
@@ -121,11 +163,15 @@ $(document).ready(function(){
 			 19:$("#ord").val(),
 			 20:$("#fam").val(),
 			 21:$("#gen").val(),
-			 22:$("#ep").val()
+			 22:$("#ep").val(),
+			 23:foto
 			} ).done(function(data){
 				alert(data);
 				location.reload();
 
 			});
+		}
+	
+			
 		});
 });

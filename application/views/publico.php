@@ -74,26 +74,32 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 	<br /> 
 	<br /> 
 <div id="sombra"></div>
+		
+
 		<div class="pup">
 		<br />
 		<br />
-	<center><form method="POST" action="<?php echo base_url(); ?>/index.php/Publico/cajon" enctype="multipart/form-data"><table>
-				<tr>
+	<center><form method="post" id="formulario" enctype="multypart/form-data"><table>
+				<tr><th>Foto</th>
 					<th>Nombre del cajón</th>
 					<th>Descripción</th>
-					<th>Foto</th>
+					
+					<th>Cambiar la foto</th>
+					
 				</tr>
 				<tr>
+				<td><img src="<?php echo base_url(); ?>Exp/mauq-1.jpg" height="150" class="currentimg"></td>
 				<td><input type="text" name="nombre" required="true">
 				<input name="ident" type="hidden"  id="cjnid"/></td>
 				<td><input type="text" name="desc" required="true"></td>
-				<td><input type="file" name="recurso" id="recurso" required="true">
-				 <input name="action" type="hidden" value="upload" /></td>
+				
+				<td><input type="file" name="file">
+				<input type="hidden" name="ruta" value="Exp/"></td>
 				</tr>
 
 			</table>
 			<div class="Btns" id="cancel">Cancelar</div>
-			<input type="submit" value="Guardar cambios" class="Btns">
+			<div class="Btns" id="guardar"> guardar^información</div>
 			</form></center>
 			
 		</div>

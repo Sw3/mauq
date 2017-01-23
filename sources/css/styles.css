@@ -117,6 +117,9 @@ A:hover {text-decoration:underline;color:#303030;}
 	.fval{
 		color: blue;
 	}
+	#inf_pbl{
+		margin-bottom: 200px;
+	}
 .bnt_reg{
   display: inline-block;
   -webkit-box-sizing: content-box;
@@ -342,16 +345,14 @@ A:hover {text-decoration:underline;color:#303030;}
 	
 }
 .sombra{
-	background-color: black;
 	opacity: 0.4;
-	z-index: 2;
+	background-color: black;
 	height: 100%;
 	width: 100%;
 	position: fixed;
 	top: 0px;
 }
 #imgGaveta{
-	z-index: 3;
 	transform: translateX(50%);
 	display: block;
 	text-align: center;

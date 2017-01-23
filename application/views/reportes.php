@@ -9,8 +9,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>
 	sources/Jquery/main.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>
-	sources/Jquery/admin.js"></script>
 	<title>Mauq</title>
 
 	<style type="text/css">	
@@ -46,6 +44,13 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 		<a href="<?php echo base_url(); ?>index.php/admin/dbdatas"><div class="Btns">Descargar el consolidado en excel</div></a>
 
 		</h3>
+
+		<form method="post" id="formulario" enctype="multypart/form-data">
+		subir imagen: <input type="file" name="file">
+		<input type="text" name="nom">
+		<input type="hidden" name="ruta" value="Exp/">
+		<a class="env"> enviar </a>
+</form>
 	</center>
 
 	</div>

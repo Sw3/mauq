@@ -46,7 +46,7 @@ class Publico extends CI_Controller {
 								<td> '.$key->NOM.'</td>
 								<td> '.$key->DESCRIPCION.'</td>
 								<td><div class="Btns">Ver</div></td>
-								<td><div class="Btns" fn="edt" cj="'.$key->ID.'">Editar</div>
+								<td><div class="Btns" fn="edt" nm="'.$key->NOM.'" ds="'.$key->DESCRIPCION.'" img="'.$key->FOTO.'" cj="'.$key->ID.'">Editar</div>
 								<div class="Btns" fn="elcaj" cj="'.$key->ID.'" >Eliminar</div></td>
 							</tr>';
 
@@ -56,7 +56,7 @@ class Publico extends CI_Controller {
 								<td> '.$key->NOM.'</td>
 								<td> '.$key->DESCRIPCION.'</td>
 								<td><div class="Btns">Ver</div></td>
-								<td><div class="Btns" fn="edt" cj="'.$key->ID.'">Editar</div>
+								<td><div class="Btns" fn="edt"nm="'.$key->NOM.'" ds="'.$key->DESCRIPCION.'" img="'.$key->FOTO.'" cj="'.$key->ID.'">Editar</div>
 								<div class="Btns" fn="elcaj" cj="'.$key->ID.'" >Eliminar</div></td>
 							</tr>';
 			}
@@ -110,65 +110,24 @@ class Publico extends CI_Controller {
 			);
 		$this->db->insert('CAJON', $arr); 
 	}
-	public function cajon(){
+	//actualiza la informacion del cajon
+	public function actualizaInfoCajon(){
 		$this->load->database();
-		 $target_path = 'Exp/';
-	     $archivos = $_FILES['recurso']['name'];	     
-	     //verifica que no exista un archivo con el mismo nombre
- 		if($this->verificar(basename($_FILES['recurso']['name']), 'Exp'))
- 		{
- 			//si no existe, lo inserta
- 		 	$target_path = $target_path .  $this->limpiar(basename( $_FILES['recurso']['name']));
- 			if(move_uploaded_file($_FILES['recurso']['tmp_name'], $target_path)) 
- 			{
- 			//todo salio bien
- 				//Inserta en la base de datos la información
 				$arr = array(
-					'NOM' => $_POST['nombre'],
-					'DESCRIPCION' => $_POST['desc'],
-					'FOTO' =>  $target_path
+					'NOM' => $_POST[0],
+					'DESCRIPCION' => $_POST[1]
 				);
-				$this->db->where('ID', $_POST['ident']);
+				$this->db->where('ID', $_POST[2]);
 				$this->db->update('CAJON', $arr); 
-
-				print "<script type=\"text/javascript\">alert('Se ha cargado exitosamente');</script>";
-			} else
-			{
-				if($_FILES['recurso']['error']==1){
-					print "<script type=\"text/javascript\">alert('El tamaño máximo de los archivos es de 20 MB');</script>";
-				}else{
-					print "<script type=\"text/javascript\">alert('Ha ocurrido un error durante la carga del arhivo, por favor consulte con el administrador del sistema. Código de error:".$_FILES['recurso']['error']."');</script>";
-				}
-	 			
-			}
- 		}
- 		else
-		{
- 		echo '<script type=\"text/javascript\">El archivo ya existe: '.$_FILES['recurso']['name'].'</script>';
- 		}
- 		$this->load->helper('url');
- 		redirect('/welcome/publico', 'location');
 	}
-	//funcion que verifica la existencia de un archivo en un paquete
-	public function verificar($file, $path){
-		$val = true;
-		$incorrecto = array();
-		$rev = scandir($path);
-		foreach ($rev as $key)
-		{ 
-			if($key == $file){
-				$val = false;
-				break;
-			}else{
-				$val = true;
-			}
-		}
-		return $val;
-	}
-		//funcion que limpia el nombre de una cadena
-	function limpiar($string ){
-		$string = htmlentities($string);
- 		$string = preg_replace('/\&(.)[^;]*;/', '\\1', $string);
- 		return str_replace (" " , "_", $string);
+	//actualiza la foto del cajon
+	public function actualizafotoCajon(){
+		print_r($_POST);
+		$this->load->database();
+				$arr = array(
+					'FOTO' => $_POST[0]
+				);
+				$this->db->where('ID', $_POST[1]);
+				$this->db->update('CAJON', $arr); 
 	}
 }

@@ -11,8 +11,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script type="text/javascript" src="<?php echo base_url();?>
 	sources/Jquery/main.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>
-	sources/Jquery/admin.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>
 	sources/Jquery/explora.js"></script>
 	<title>Mauq</title>
 	<style type="text/css">	
@@ -58,7 +56,7 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 
 
 	<div class="sombra"> </div>
-	<img src="<?php echo base_url(); ?>/Exp/mauq-10.jpg" id="imgGaveta"> 
+	<img src="<?php echo base_url(); ?>/Exp/mauq-10.jpg" id="imgGaveta">
 
 	<div id="footer" name='<?php echo base_url(); ?>'>
 		<div id="cent">

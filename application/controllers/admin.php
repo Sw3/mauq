@@ -50,11 +50,14 @@ class admin extends CI_Controller
 	   'NOMBREENTIDAD' => "UNIVERSIDAD DEL QUINDIO",
 	   'PROFMAX' => 0,
 	   'TIPOREG' => "SD",
-	   'FIL' => "arthropoda");
+	   'FIL' => "arthropoda",
+	   'FOTO' => strtoupper($_POST[23])
+	   );
 		//Ingreso a la base de datos
 			try{
 				$this->db->insert('REGISTRO', $ARR);
-				echo "Se ha registrado con éxito!";
+				//echo "Se ha registrado con éxito!";
+				echo $this->db->last_query();
 			}catch(Exception $e){
 				echo "Hubo un problema: ".$e;
 			}
@@ -221,5 +224,17 @@ class admin extends CI_Controller
  
         //force user to download the Excel file without writing it to server's HD
         $objWriter->save('php://output');
+	}
+
+	public function upload(){
+		$file = $_FILES["file"];
+		$nombre = $file["name"];
+		$rutaprov = $file["tmp_name"];
+		$carpeta = $_POST["ruta"];
+		$pos = strpos($nombre, ".");
+		$ext = substr($nombre, $pos);
+			$src = $carpeta.(date("Ynjhis")).$ext;
+			move_uploaded_file($rutaprov, $src);
+			echo $src;
 	}
 }

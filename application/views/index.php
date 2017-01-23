@@ -150,6 +150,12 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 				      <td><label for="ComsReg">Epíteto Específico</label></td>
 				      <td><input type="text" name="ep" id="ep" cols="45" rows="5"></textarea></td>
 				    </tr>
+				    <tr height="40">
+				      <td><label for="ComsReg">Foto</label></td>
+				      <td><form method="post" id="formulario" enctype="multypart/form-data">
+					<input type="file" name="file"><input type="hidden" name="ruta" value="Especimenes/">
+					</form></td>
+				    </tr>
 				  </table>
 			</div>
 			<center><div class="bnt_reg" id="reg">Regresar</div>

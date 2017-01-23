@@ -7,12 +7,13 @@ $(".abrir").css("background-image", "url('"+IP+"/gavetas/gvt.png')");
 
 
 
-
+//accinoes al dar clic sobre un cajon
  $(".cajon").click(function(){
- 	//$("#abrir").hide();
+ 	//obtiene el numero del cajon para abrirlo
  	var pos = $(this).attr("name");
 	var fin = 72 + ((pos-1)*50);
  	var current = $(this).attr("g");
+ 	//animación de abrir cajon
  	$("#"+current).animate({
 			opacity: 0,
 	}, "fast");
@@ -21,12 +22,11 @@ $(".abrir").css("background-image", "url('"+IP+"/gavetas/gvt.png')");
 			top: ""+fin+"px"
 	}, "fast");
 
- 	//$("#abrir").css("top", ""+fin+"px");
-
  	$("#"+current).animate({
 			opacity: 1
 		}, "fast");
  });
+ //animación de serrar cajon
 	$(".abrir").click(function(){
 		$(this).animate({
 			opacity: 0
@@ -52,6 +52,7 @@ $(".abrir").css("background-image", "url('"+IP+"/gavetas/gvt.png')");
 					$(".abrir").css("z-index", "-1");
 					 $(".cajon").css("background-image", "url('"+IP+"/gavetas/cajon.jpg')");
 					 $(".abrir").css("background-image", "url('"+IP+"/gavetas/gvt.png')");
+					 //acciones al dar clic sobre un cajon
 					 $(".cajon").bind("click", function(){
 					 	 $(".abrir").css("z-index", "1");
 					 	var pos = $(this).attr("name");
@@ -68,6 +69,17 @@ $(".abrir").css("background-image", "url('"+IP+"/gavetas/gvt.png')");
 					 	$("#"+current).animate({
 								opacity: 1
 							}, "fast");
+
+					 	//carga la foto
+					 	var foto = $(this).attr("img");
+					 		$("#imgGaveta").attr("src", IP+foto);
+					 		$("#imgGaveta").css("z-index", "2");	
+					 		$(".sombra").css("z-index", "1");
+					 		$("#imgGaveta").delay(900);
+					 		$(".sombra").delay(900);
+						 	//muestra imagen
+						 	$(".sombra").toggle("fast");
+						 	$("#imgGaveta").toggle("slow");
 					 	});
 
 					 $(".abrir").bind("click", function(){
@@ -78,6 +90,16 @@ $(".abrir").css("background-image", "url('"+IP+"/gavetas/gvt.png')");
 						 $(".abrir").css("opacity", "0");
 					 });
 					});
-
-
+		
+		$(".sombra").hide();
+		$("#imgGaveta").hide();
+		//animacion guarda el cajon
+		$(".sombra").click(function(){
+			$(".sombra").toggle("fast");
+			$("#imgGaveta").toggle("slow");
+		});
+		$("#imgGaveta").click(function(){
+			$(".sombra").toggle("fast");
+			$("#imgGaveta").toggle("slow");
+		});
 });

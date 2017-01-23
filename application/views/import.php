@@ -9725,9 +9725,9 @@ Autodeclaración de la aplicación del art. 252 de la ley 1753 de 2015;MAUQ. EST
 );
 
 $this->db->insert('REGISTRO', $ARR); 
-//echo $this->db->last_query();
+echo $this->db->last_query();
 
-//echo "; <br />";
+echo "; <br />";
 	}
 
 function toint($param){
