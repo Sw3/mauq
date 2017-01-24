@@ -86,13 +86,30 @@ class Welcome extends CI_Controller {
  
 		$this->load->database();
 		$this->load->helper('url');
-		$this->load->view('donaciones');
+		$this->load->view('protocolos');
 	}
 			public function visitas()
 	{	
  
 		$this->load->database();
 		$this->load->helper('url');
-		$this->load->view('visitas');
+		$this->load->view('recursos');
+	}
+	//Carga el contenido de la zona pública
+	public function cargarContenido(){
+		$this->load->database();
+		$query = $this->db->get_where('TEXTOPUBLICO', array('SECCION' => $_POST[0]));
+		echo($query->result()[0]->CONTENIDO);
+	}
+	//actualiza el contenido de la zona publica
+	public function actualizarContenido(){
+		$this->load->database();
+		$arr = array(
+					'CONTENIDO' => $_POST[0]
+				);
+				$this->db->where('SECCION', $_POST[1]);
+				$this->db->update('TEXTOPUBLICO', $arr); 
+				echo "Se ha actualizado la seeción.";
+
 	}
 }

@@ -80,11 +80,13 @@ class Busqueda extends CI_Controller {
 				</table>
 			</div>';
 		}
-		echo "	<br />
+		echo '	<br />
 	<br />
 	<br />
 	<br />
-	<br />";
+	<br />
+	
+	';
 		}
 		
 	}
@@ -92,6 +94,7 @@ class Busqueda extends CI_Controller {
 	//Función para mostrar detalle de registro en módulo de búsqueda
 	function detalle()
 	{
+		$this->load->helper('url');
 		//carga el helper de base de datos
 		$this->load->database();
 		$arr  = array('ESPECIME_ID' => $_POST[1]);
@@ -100,6 +103,7 @@ class Busqueda extends CI_Controller {
 
 		$row = $query->result()[0];
 		echo'<div class="close">X</div>
+
 		<table cellspacing="0" cellpadding="0" class="tbl" border="1"  bordercolor="gray">
 		  	<tr bgcolor="#F9F7F7" >
 			    <td width="457" class="title">Acreditación    del origen del especímen</td>
@@ -188,7 +192,8 @@ class Busqueda extends CI_Controller {
 			    <td width="153" class="title">Género</td>
 			    <td width="138" class="title">Epíteto    específico</td>
 			    <td width="164" class="title">Epíteto    infraespecífico</td>
-			    <td width="129" colspan="2" class="title">Nombre común</td>
+			    <td width="129" class="title">Nombre común</td>
+			    <td width="129" class="title">Foto</td>
 		    </tr>
 		    <tr>
 			    <td>'.$row->CLAS.'</td>
@@ -197,9 +202,23 @@ class Busqueda extends CI_Controller {
 			    <td>'.$row->GEN.'</td>
 			    <td>'.$row->EPITETO.'</td>
 			    <td>'.$row->EPITIF.'</td>
-			    <td colspan="2">'.$row->NOMBRECOMUN.'</td>
+			    <td>'.$row->NOMBRECOMUN.'</td>
+			    ';
+			    if($row->FOTO==""){
+			    	echo '<td>sin foto</td>';
+			    }else{
+			    	echo '<td><a href="'.base_url().$row->FOTO.'">VER/DESCARGAR</a></td>';
+			    }
+			    echo'
 		    </tr>
-		</table>
+		</table><br /><br /><br />
+		
+		<div id="edit" class="edit_btn" especimen="'.$row->ESPECIME_ID.'" >Editar</div>	
+			<div id="delete" class="myButton"  especimen="'.$row->ESPECIME_ID.'" >Eliminar</div><br /><br />
+		<form>
+		Agregar foto: <input type="file" name="file" ><br />
+		<input type="hidden" name="especimenId" value="'.$row->ESPECIME_ID.'">
+		</form>
 				</div>';
 	}
 

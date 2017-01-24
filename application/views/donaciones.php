@@ -35,10 +35,10 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 	<div id="menu">
 		<div id="menubar">
 			<a href="<?php echo base_url(); ?>index.php/welcome/index"><div class="menuItem">Inicio</div></a>
-			<a href="<?php echo base_url(); ?>index.php/welcome/museo"><div class="menuItem">El Museo</div></a>
+			<a href="<?php echo base_url(); ?>index.php/welcome/museo"><div class="menuItem">El museo</div></a>
 			<a href="<?php echo base_url(); ?>index.php/welcome/explora"><div class="menuItem">Explora</div></a>
-			<a href="<?php echo base_url(); ?>index.php/welcome/donaciones"><div class="menuItem">Depositar especimen</div></a>
-			<a href="<?php echo base_url(); ?>index.php/welcome/visitas"><div class="menuItem">Visitas</div></a>
+			<a href="<?php echo base_url(); ?>index.php/welcome/donaciones"><div class="menuItem">Protocolos</div></a>
+			<a href="<?php echo base_url(); ?>index.php/welcome/visitas"><div class="menuItem">Recursos educativos</div></a>
 		</div>
 	</div>
 	<div id="expl">

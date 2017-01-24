@@ -35,25 +35,14 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 	<div id="menu">
 		<div id="menubar">
 			<a href="<?php echo base_url(); ?>index.php/welcome/index"><div class="menuItem">Inicio</div></a>
-			<a href="<?php echo base_url(); ?>index.php/welcome/museo"><div class="menuItem">El Museo</div></a>
+			<a href="<?php echo base_url(); ?>index.php/welcome/museo"><div class="menuItem">El museo</div></a>
 			<a href="<?php echo base_url(); ?>index.php/welcome/explora"><div class="menuItem">Explora</div></a>
-			<a href="<?php echo base_url(); ?>index.php/welcome/donaciones"><div class="menuItem">Depositar especimen</div></a>
-			<a href="<?php echo base_url(); ?>index.php/welcome/visitas"><div class="menuItem">Educación</div></a>
+			<a href="<?php echo base_url(); ?>index.php/welcome/donaciones"><div class="menuItem">Protocolos</div></a>
+			<a href="<?php echo base_url(); ?>index.php/welcome/visitas"><div class="menuItem">Recursos educativos</div></a>
 		</div>
 	</div>
-	<div class="pbl">
+	<div class="pbl" id="iniciocontent">
 
-	La colección del Museo de Artrópodos de la Universidad del Quindio (MAUQ) cumple una doble función al ser de carácter científico y de docencia. En él se encuentran preservados 3594 ejemplares reportados en el Instituto de Investigaciones en Recursos Biológicos Alexander von Humboldt. Esta colección es esencial para el estudio de la diversidad de artrópodos del Quindío y de referencia importante para todos aquellos investigadores nacionales e internacionales, interesados en estos grupos, pues los ejemplares contenidos en ella son la representación material de gran parte de artrópodos del territorio quindiano y de otras zonas del país. El MAUQ también tienen como propósito favorecer la interacción pedagógica por medio de visitas guiadas y capacitaciones de la biología de la fauna artrópoda, el manejo de colecciones y métodos de colecta. El público objetivo es la comunidad en general interesada en conocer y sensibilizarse en la identificación de artrópodos de la nuestra región. <br /><br />
- 
- 
-Servicios MAUQ: <br /><br />
- 
->Elaboración de montajes permanentes de artrópodos colectados con autorización de la Institución <br />responsable (ministerio o corporación).<br />
->Determinación taxonómica de muestras entomológicas.<br />
->Estudios entomológicos para el control de insectos vectores de enfermedades.<br />
->Centro de documentación.<br />
->Talleres sobre métodos de colecta, transporte, preservación y montaje de insectos para exposición, estudios científicos, académicos y muestra de colecciones.<br />
->Asesoría profesional a docentes, estudiantes o particulares interesados en el área.<br />
 
 
 	</div>

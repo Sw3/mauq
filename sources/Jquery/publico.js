@@ -134,9 +134,46 @@ $("#p4").click(function(){
 							});
 	});
 
+   //Carga de textos públicos
+   	  //carga contenido de la pagina de inicio
+	  $.post( IP+"index.php/Welcome/cargarContenido", { 0 : "INICIO" } ).done(function(data){
+		$("#iniciocontent").val(data);							
+		});
+	  //carga contenido de la pagina de museo
+	  $.post( IP+"index.php/Welcome/cargarContenido", { 0 : "MUSEO" } ).done(function(data){
+		$("#museocontent").val(data);							
+		});
+	  //carga contenido de la pagina de protocolos
+	  $.post( IP+"index.php/Welcome/cargarContenido", { 0 : "PROTOCOLOS" } ).done(function(data){
+		$("#protocoloscontent").val(data);							
+		});
+	  //fin de carga
+	  	//accion de botones de guardar cambios
+		$("#updinicio").click(function(){
+			//actualiza contenido de la pagina de inicio
+			  $.post( IP+"index.php/Welcome/actualizarContenido", { 0: $("#iniciocontent").val(), 1 : "INICIO" } ).done(function(data){
+				alert(data);							
+				});
+		});
+		$("#updmuseo").click(function(){
+			//actualiza contenido de la pagina de inicio
+			  $.post( IP+"index.php/Welcome/actualizarContenido", { 0: $("#museocontent").val(), 1 : "MUSEO" } ).done(function(data){
+				alert(data);							
+				});
+		});
+		$("#updprotocolos").click(function(){
+			//actualiza contenido de la pagina de inicio
+			  $.post( IP+"index.php/Welcome/actualizarContenido", { 0: $("#protocoloscontent").val(), 1 : "PROTOCOLOS" } ).done(function(data){
+				alert(data);							
+				});
+		});
 
 
-function ventanaConfirmacion(texto){	
-	$("body").append('<div class="VentanaConfirmacion"> Confirmación <div class="cuerpo">'+texto+'<br /><br /><br /> <a href="#" class="BtnAlert" id="ok">Aceptar</a>	<a href="#" class="BtnAlert" id="cancel">Cancelar</a></div>');
-		}
-});
+
+
+
+
+		function ventanaConfirmacion(texto){	
+			$("body").append('<div class="VentanaConfirmacion"> Confirmación <div class="cuerpo">'+texto+'<br /><br /><br /> <a href="#" class="BtnAlert" id="ok">Aceptar</a>	<a href="#" class="BtnAlert" id="cancel">Cancelar</a></div>');
+				}
+		});

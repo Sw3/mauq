@@ -41,88 +41,13 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 			<a href="<?php echo base_url(); ?>index.php/welcome/visitas"><div class="menuItem">Recursos educativos</div></a>
 		</div>
 	</div>
-	<div id="expl">
-	<div id="educacioncontent">
-	<table id="tb">
-		<tr>
-		<td>
-		<div class="abt">
-		<div class="abrir" id="g1">gaveta</div>
-			<div class="gaveta"> 
-			<div class="cajon" name="1" g="g1"> 1 </div>
-			<div class="cajon" name="2" g="g1"> 2 </div>
-			<div class="cajon" name="3" g="g1"> 3 </div>
-			<div class="cajon" name="4" g="g1"> 4 </div>
-			<div class="cajon" name="5" g="g1"> 5 </div>
-			<div class="cajon" name="6" g="g1"> 6 </div>
-			<div class="cajon" name="7" g="g1"> 7 </div>
-			<div class="cajon" name="8" g="g1"> 8 </div>
-			</div>
-		</div>
-		</td>
-		<td>
-			<div class="abt">
-		<div class="abrir" id="g2">gaveta</div>
-			<div class="gaveta"> 
-			<div class="cajon" name="1" g="g2"> 1 </div>
-			<div class="cajon" name="2" g="g2"> 2 </div>
-			<div class="cajon" name="3" g="g2"> 3 </div>
-			<div class="cajon" name="4" g="g2"> 4 </div>
-			</div>
-		</div>
-		</td>
-		<td>
-			<div class="abt">
-		<div class="abrir" id="g3">gaveta</div>
-			<div class="gaveta"> 
-			<div class="cajon" name="1" g="g3"> 1 </div>
-			<div class="cajon" name="2" g="g3"> 2 </div>
-			<div class="cajon" name="3" g="g3"> 3 </div>
-			<div class="cajon" name="4" g="g3"> 4 </div>
-			</div>
-		</div>
-		</td>
-		<td>
-			<div class="abt">
-		<div class="abrir" id="g4">gaveta</div>
-			<div class="gaveta"> 
-			<div class="cajon" name="1" g="g4"> 1 </div>
-			<div class="cajon" name="2" g="g4"> 2 </div>
-			<div class="cajon" name="3" g="g4"> 3 </div>
-			<div class="cajon" name="4" g="g4"> 4 </div>
-			</div>
-		</div>
-		</td>
-		<td>
-			<div class="abt">
-		<div class="abrir" id="g5">gaveta</div>
-			<div class="gaveta"> 
-			<div class="cajon" name="1" g="g5"> 1 </div>
-			<div class="cajon" name="2" g="g5"> 2 </div>
-			<div class="cajon" name="3" g="g5"> 3 </div>
-			<div class="cajon" name="4" g="g5"> 4 </div>
-			</div>
-		</div>
-		</td>
-		<td>
-			
-		<div class="abt">
-		<div class="abrir" id="g6">gaveta</div>
-			<div class="gaveta"> 
-			<div class="cajon" name="1" g="g6"> 1 </div>
-			<div class="cajon" name="2" g="g6"> 2 </div>
-			<div class="cajon" name="3" g="g6"> 3 </div>
-			<div class="cajon" name="4" g="g6"> 4 </div>
-			</div>
-		</div>
-		</td>
-	</table>
-	</div>	
+	<div class="pbl" id="recursoscontent">
+
+
 
 	</div>
-	<div  class="direccion" id="der"> < </div>
-	<div  class="direccion" id="izq"> > </div>
 	<a href="<?php echo base_url(); ?>index.php/welcome/registro"> <div class="lgin">Iniciar sesion</div></a>
+
 	<div id="footer" name='<?php echo base_url(); ?>'>
 		<div id="cent">
 			<div class="leftp">

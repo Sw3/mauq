@@ -47,7 +47,7 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 	<div id="m2"> 
 		<div class="menuItem1" id="p1"><li>Página Inicial</li></div>
 		<div class="menuItem1" id="p2"><li>Explora</li></div>
-		<div class="menuItem1" id="p3"><li>Depósito de especímenes</li></div>
+		<div class="menuItem1" id="p3"><li>Protocolos</li></div>
 		<div class="menuItem1" id="p4"><li>El museo</li></div>
 	</div>
 	<br />
@@ -57,18 +57,18 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 		<center><h3>Modificar Información pública </h3></center>
 		<div class="sec" id="gavs"><h3>Explora</h3></div>
 		<div class="sec" id="inicial"><h3>pagina inicial</h3>
-		<textarea cols="100" rows="20"></textarea> <br />
-		<div class="Btns"> Gurdar cambios</div>
+		<textarea cols="100" rows="20" id="iniciocontent"></textarea> <br />
+		<div class="Btns" id="updinicio"> Gurdar cambios</div>
 		</div>
-		<div class="sec" id="deps"><h3>Deposito de especimenes</h3>
+		<div class="sec" id="deps"><h3>Protocolos</h3>
 
-		<textarea cols="100" rows="20"></textarea> <br />
-		<div class="Btns"> Gurdar cambios</div>
+		<textarea cols="100" rows="20" id="protocoloscontent"></textarea> <br />
+		<div class="Btns" id="updprotocolos"> Gurdar cambios</div>
 
 		</div>
 		<div class="sec" id="museo"><h3>El museo</h3>
-		<textarea cols="100" rows="20"></textarea> <br />
-		<div class="Btns"> Gurdar cambios</div></div>
+		<textarea cols="100" rows="20" id="museocontent"></textarea> <br />
+		<div class="Btns" id="updmuseo"> Gurdar cambios</div></div>
 	<br /> 
 	<br /> 
 	<br /> 

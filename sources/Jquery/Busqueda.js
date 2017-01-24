@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
 var IP= $("#footer").attr("name");		
+
+
 	var fltrs=[];   //arreglo que contiene los filtros de búsqueda
 	var page=0;		//indice de la pagina de búsqueda
 	    //Añadir filtro
@@ -75,6 +77,32 @@ var IP= $("#footer").attr("name");
 					$(".close").bind("click", function(){
 					$("#detalle").toggle("slow");
 					$("#sombra").fadeOut("slow");
+					});
+					//implementa las acciones para el boton eliminar
+					$("#delete").bind("click", function(){
+						
+	ventanaConfirmacion("Esta seguro de que desea eliminar el especimen?");
+	$(".BtnAlert").bind("click", function(){
+								var opcion = $(this).attr("id");
+								//el usuario confirma el cambio
+								if(opcion=="ok"){
+									$.post( IP+"index.php/admin/eliminarEspecimen", { 0 : $("#delete").attr("especimen")} ).done(function(data){
+									alert(data);
+									$(".VentanaConfirmacion").remove();
+									$("#detalle").toggle("slow");
+									$("#sombra").fadeOut("slow");
+									buscar();
+									});
+								}else{
+									$(".VentanaConfirmacion").fadeOut("slow");
+								$(".VentanaConfirmacion").remove();
+								$("#pup").fadeOut();
+								}
+							});
+
+					});
+					$("#edit").bind("click", function(){
+						alert($(this).attr("especimen"));
 					});
 				});
 				//muestra el div de detalle con la información
@@ -152,4 +180,8 @@ var IP= $("#footer").attr("name");
 		$.post( IP+"index.php/Busqueda/comboBox", { 1: "CATTAXON", 2: "vl", 3: "CATEGORIA_ID", 4: "TAXON" } ).done(function(data){
 				$("#fl").html(data);
 				});
+		function ventanaConfirmacion(texto){	
+	$("body").append('<div class="VentanaConfirmacion"> Confirmación <div class="cuerpo">'+texto+'<br /><br /><br /> <a href="#" class="BtnAlert" id="ok">Aceptar</a>	<a href="#" class="BtnAlert" id="cancel">Cancelar</a></div>');
+		}
+
 });

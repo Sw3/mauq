@@ -237,4 +237,12 @@ class admin extends CI_Controller
 			move_uploaded_file($rutaprov, $src);
 			echo $src;
 	}
+
+	//Función para eliminar un especimen.
+	//recibe el id por POST[0]
+	public function eliminarEspecimen(){
+		$this->load->database();
+		$this->db->delete('ESPECIMEN', array('ESPECIME_ID' => $_POST[0]));
+		echo "El especimen ha sido eliminado"; 
+	}
 }
