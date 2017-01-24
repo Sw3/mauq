@@ -28,37 +28,49 @@ class Welcome extends CI_Controller {
 
 	public function registro()
 	{	
+		if($this->logeado()){
 		$this->load->database();
 		$this->load->helper('url');
-			$this->load->database();
+		$this->load->database();
 		$this->load->view('index');
+		}
+		
 	}
 			public function busqueda()
 	{	
- 
-		$this->load->database();
+ 		if($this->logeado()){
+			$this->load->database();
 		$this->load->helper('url');
 		$this->load->view('busqueda');
+		}
+		
 	}		
 			public function educacion()
 	{	
+		if($this->logeado()){
 		$this->load->database();
 		$this->load->helper('url');
 		$this->load->view('educacion');
+		}
+		
 	}
 			public function publico()
 	{	
- 
-		$this->load->database();
+ 		if($this->logeado()){
+			$this->load->database();
 		$this->load->helper('url');
 		$this->load->view('publico');
+		}
+		
 	}
 			public function reportes()
 	{	
- 
-		$this->load->database();
+ 		if($this->logeado()){
+			$this->load->database();
 		$this->load->helper('url');
 		$this->load->view('reportes');
+		}
+		
 	}
 			public function inicio()
 	{	
@@ -110,6 +122,31 @@ class Welcome extends CI_Controller {
 				$this->db->where('SECCION', $_POST[1]);
 				$this->db->update('TEXTOPUBLICO', $arr); 
 				echo "Se ha actualizado la seeción.";
+	}
+	public function login(){
+		$this->load->database();
+		$query = $this->db->get_where('USUARIOS', array('USR' => $_POST[0], 'PASSWORD' => $_POST[1]));
+		if(isset($query->result()[0])){
+			//creacion de la sesion
+			session_start();
+			$_SESSION["usr"]=$query->result()[0]->ID;
+			echo "ok";
+		}else{
+			echo "existe un error en la combinacion usuario/contraseña";
+		}
 
 	}
+	public function logeado(){
+		$this->load->helper('url');
+		session_start();
+		if(isset($_SESSION["usr"])){
+			return true;
+		}else{
+			echo('<script type="text/javascript">
+ 			 window.location.href = "'.base_url().'index.php/Welcome/index";
+			</script>');
+			return false;
+		}
+	}
+
 }

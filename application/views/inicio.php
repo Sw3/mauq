@@ -46,7 +46,24 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 
 
 	</div>
-	<a href="<?php echo base_url(); ?>index.php/welcome/registro"> <div class="lgin">Iniciar sesion</div></a>
+
+	<div class="logBox">
+		<table border="0">
+			<tr>
+				<td>Usuario</td>
+				<td><input type="text" id="usr" name="usr"></td>
+			</tr>
+			<tr>
+				<td>Contraseña</td>
+				<td><input type="password" id="pass" name="pass"></td>
+			</tr>
+			<tr>
+				<td ></td>
+				<td ><a class="acceso">Ingresar</a></td>
+			</tr>
+		</table>
+	</div>
+	<div class="lgin">Inico de sesión</div>
 
 	<div id="footer" name='<?php echo base_url(); ?>'>
 		<div id="cent">

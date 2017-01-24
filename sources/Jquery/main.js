@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
 	var IP= $("#footer").attr("name");
 	//cambio de color de los elementos del menu al pasar mouse sobre
 	  $(".menuItem").on("mouseover",function(){
@@ -35,7 +36,21 @@ $(document).ready(function(){
 	  $.post( IP+"index.php/Welcome/cargarContenido", { 0 : "RECURSOS" } ).done(function(data){
 		$("#recursoscontent").html(data);							
 		});
-
+	  //funcion para inicio de sesion
+	  $(".acceso").click(function(){
+	  	$.post( IP+"index.php/Welcome/login", { 0 : $("#usr").val(), 1 : $("#pass").val() } ).done(function(data){
+		if(data=="ok"){
+		window.location.href = IP+"index.php/Welcome/registro";
+		}	
+		else{
+			alert("Los datos ingresados son incorrectos");
+		}						
+		});
+	  });
+	  $(".logBox").hide();
+	  $(".lgin").click(function(){
+	  	$(".logBox").toggle("slow");
+	  });
 
 $(".env").click(function(){
 			var formData = new FormData($("#formulario")[0]);

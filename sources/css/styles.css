@@ -227,6 +227,19 @@ A:hover {text-decoration:underline;color:#303030;}
 	margin-top: 60px;
 	font-size: 11pt;
 }
+.acceso{
+	cursor: pointer;
+	text-align: right;
+}
+.logBox {
+	z-index: 2;
+	border-color: white;
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	font-size:9pt;
+	text-decoration:none;
+}
 .lgin {
 	position: absolute;
 	top: 10px;
