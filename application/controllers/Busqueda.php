@@ -13,7 +13,7 @@ class Busqueda extends CI_Controller {
 	$this->db->order_by($_POST[4], "asc");
 	$query = $this->db->get($_POST[1]);
 
-	echo '<select id="'.$_POST[2].'">';
+	echo '<select id="'.$_POST[2].'" width="140" style="width: 140px">';
 	foreach ($query->result() as $row) {
 		echo '<option value="'.$row->$_POST[4].'">'.$row->$_POST[4].'</option>';
 	}
@@ -207,7 +207,7 @@ class Busqueda extends CI_Controller {
 			    if($row->FOTO==""){
 			    	echo '<td>sin foto</td>';
 			    }else{
-			    	echo '<td><a href="'.base_url().$row->FOTO.'">VER/DESCARGAR</a></td>';
+			    	echo '<td><a href="'.base_url().$row->FOTO.'" target="_blank"><font color="blue">VER/DESCARGAR</font></a></td>';
 			    }
 			    echo'
 		    </tr>

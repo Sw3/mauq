@@ -50,7 +50,7 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 			<table>
 				<tr>
 					<td>Categoria: </td>
-					<td><select id="flt">
+					<td><select id="flt" width="140" style="width: 140px">
 				<option value="TAXON">Categoría de taxón</option>
 				<option value="CLAS">Clase</option>
 				<option value="ORD">Orden</option>

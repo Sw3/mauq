@@ -57,7 +57,7 @@ class admin extends CI_Controller
 			try{
 				$this->db->insert('REGISTRO', $ARR);
 				//echo "Se ha registrado con éxito!";
-				echo $this->db->last_query();
+			echo "Se ha registrado correctamente";
 			}catch(Exception $e){
 				echo "Hubo un problema: ".$e;
 			}
@@ -117,7 +117,7 @@ class admin extends CI_Controller
 	$this->db->order_by($_POST[4], "asc");
 	$query = $this->db->get($_POST[1]);
 
-	echo '<select id="'.$_POST[2].'">';
+	echo '<select id="'.$_POST[2].'" width="200" style="width: 200px">';
 	foreach ($query->result() as $row) {
 		echo '<option value="'.$row->$_POST[4].'">'.$row->$_POST[4].'</option>';
 	}

@@ -48,22 +48,22 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 					<table  border="0">
 						<tr height="40">
 					      <td>Acreditación de origen del especimen</td>
-					      <td id="cb1"></td>
+					      <td id="cb1" width="650px"></td>
 					      <td>&nbsp;</td>
 					      <td>&nbsp;</td>
 					    </tr>
 					      <td>Id del registro biológico</td>
-					      <td><input type="text" name="idRegBio" id="idRegBio" /></td>
+					      <td><input type="text" name="idRegBio" id="idRegBio" width="200" style="width: 200px"/></td>
 					      <td>&nbsp;</td>
 					      <td>&nbsp;</td>
 					    </tr>
 					    <tr height="40">
 					      <td width="216">Número de catálogo</td>
-					      <td width="247"><input type="text" name="NumCat" id="NumCat" /></td>
+					      <td width="247"><input type="text" name="NumCat" id="NumCat" width="200" style="width: 200px"/></td>
 					    </tr>	
 					     <tr height="40">
 						      <td>Fecha del evento</td>
-						      <td><input type="text" name="fecha" id="fecha" required="true" /><div id="fval"></div></td>
+						      <td><input type="text" name="fecha" id="fecha" required="true" width="200" style="width: 200px" /><div id="fval"></div></td>
 						    </tr>						    
 					   <tr height="40">
 					      <td><label for="Preparaciones">Preparaciones</label></td>
@@ -71,11 +71,11 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 					      </select></td>
 						    <tr>
 						      <td><label for="NomColector">Nombre del colector</label></td>
-						      <td><input type="text" name="NomColector" id="NomColector" /></td>
+						      <td><input type="text" name="NomColector" id="NomColector" width="200" style="width: 200px"/></td>
 						    </tr>
 							<tr height="40">
 						      <td>Identificado por</td>
-						      <td><input type="text" name="IdentificadoPor" id="IdentificadoPor" /></td>
+						      <td><input type="text" name="IdentificadoPor" id="IdentificadoPor" width="200" style="width: 200px" /></td>
 						    </tr>					    
 					    </tr>	
 
@@ -87,32 +87,32 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 				<table border="0">
 				    <tr height="40">
 				      <td width="216">Pais</td>
-				      <td width="247"><input type="text" name="pais" id="pais" /></td>
+				      <td id="cb8"></td>
 				    </tr>
 				   <tr height="40">
 				      <td><label for="Preparaciones">Departamento</label></td>
-				      <td><input type="text" name="depto" id="depto">
+				     <td id="cb9"></td>
 				      </select></td>
 				    </tr>
 				    <tr>
 				      <td><label for="NomColector">Municipio</label></td>
-				      <td><input type="text" name="mun" id="mun" /></td>
+				      <td id="cb10"></td>
 				    </tr>
 				    <tr height="40">
 				      <td>Localidad</td>
-				      <td><input type="text" name="loc" id="loc" /></td>
+				      <td id="cb11"></td>
 				    </tr>
 				    <tr height="40">
 				      <td>Latitud decimal</td>
-				      <td><input type="text" name="lat" id="lat" /></td>
+				      <td><input type="text" name="lat" id="lat" width="200" style="width: 200px"/></td>
 				    </tr>
 				  	<tr height="40">
 				      <td><label for="ComsReg">Longitud decimal</label></td>
-				      <td><input type="text" name="lon" id="lon" cols="45" rows="5"></textarea></td>
+				      <td><input type="text" name="lon" id="lon" cols="45" rows="5" width="200" style="width: 200px"></textarea></td>
 				    </tr>
 				    <tr height="40">
 				      <td><label for="ComsReg">Elevación mínima en metros</label></td>
-				      <td><input type="number" name="elevmin" id="elevmin" cols="45" rows="5"></textarea></td>
+				      <td><input type="number" name="elevmin" id="elevmin" cols="45" rows="5" width="200" style="width: 200px"></textarea></td>
 				    </tr>
 				  </table>
 			</div>
@@ -120,7 +120,7 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 				<table border="0">
 				    <tr height="40">
 				      <td width="216">Elevación máxima (Mts)</td>
-				      <td width="247"><input type="number" name="elevmax" id="elevmax" /></td>
+				      <td width="247"><input type="number" name="elevmax" id="elevmax" width="200" style="width: 200px"/></td>
 				    </tr>
 				    <tr>
 				      <td><label for="NomColector">Categoría del taxón</label></td>
@@ -128,7 +128,7 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 				    </tr>
 				    <tr height="40">
 				      <td>Numero de individuos</td>
-				      <td><input type="number" name="num" id="num" /></td>
+				      <td><input type="number" name="num" id="num" width="200" style="width: 200px" /></td>
 				    </tr>
 				    <tr height="40">
 				      <td>Clase</td>
@@ -148,7 +148,7 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 				    </tr>
 				    <tr height="40">
 				      <td><label for="ComsReg">Epíteto Específico</label></td>
-				      <td><input type="text" name="ep" id="ep" cols="45" rows="5"></textarea></td>
+				      <td><input type="text" name="ep" id="ep" cols="45" rows="5" width="200" style="width: 200px"></textarea></td>
 				    </tr>
 				    <tr height="40">
 				      <td><label for="ComsReg">Foto</label></td>
