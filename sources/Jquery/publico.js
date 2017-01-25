@@ -12,22 +12,33 @@ $(document).ready(function(){
 		
 	});
 
-//Oculta edicion de recurso educativo
 $(".editRecurso").hide();
-
-
+$("#cls").click(function(){
+				$(".editRecurso").fadeOut("fast");
+			});
 //lista documentos de protocolos
 listaProtocolos();
 function listaProtocolos(){
 	$.post( IP+"index.php/Educacion/ListarRecursos", {0:'0'}).done(function(data){
 				$("#tablaProts").html(data);
-				$("#eBtn").bind("click", function(){
-					$(".editRecurso").fadeIn("fast");
+				$(".edit_btn").bind("click", function(){
+					var act =$(this).attr("fn");
+					if(act="edt"){
+						$("#ref").val($(this).attr("id"));
+						//carga los valores anteriores
+						$("#nnombre").val($(this).attr("nm"));
+						$("#ndesc").val($(this).attr("dc"));
+						$(".editRecurso").fadeIn("fast");
+						$("#cancel").bind("click", function(){
+						$(".editRecurso").fadeOut("fast");
+						});
+					}
+					
 				});
 				$(".myButton").bind("click", function()
 				{	//funciones de elmininación
 					var id = $(this).attr("id");
-					ventanaConfirmacion();
+					ventanaConfirmacion("Está seguro de eliminar este registro?");
 								$(".BtnAlert").bind("click", function(){
 								var opcion = $(this).attr("id");
 								if(opcion=="ok"){
@@ -45,6 +56,16 @@ function listaProtocolos(){
 				});
 			});
 }
+
+//confirma edicion de recurso
+$("#confirma").click(function(){
+$.post( IP+"index.php/Educacion/EditarRecurso", {0: $("#ref").val(), 1 :$("#nnombre").val() , 2: $("#ndesc").val() }).done(function(data){
+alert(data);
+$(".editRecurso").fadeOut("fast");
+listaRecs();
+listaProtocolos();
+});
+});
 //registra protocolo
 $("#registrarProtocolo").click(function(){
 			var formData = new FormData($("#proto")[0]);
@@ -85,18 +106,30 @@ listaRecs();
 function listaRecs(){
 	$.post( IP+"index.php/Educacion/ListarRecursos", {0:'1'}).done(function(data){
 				$("#tablarecs").html(data);
-				$("#eBtn").bind("click", function(){
-					$(".editRecurso").fadeIn("fast");
+				$(".edit_btn").bind("click", function(){
+					var act =$(this).attr("fn");
+					if(act="edt"){
+						$("#ref").val($(this).attr("id"));
+						//carga los valores anteriores
+						$("#nnombre").val($(this).attr("nm"));
+						$("#ndesc").val($(this).attr("dc"));
+						$(".editRecurso").fadeIn("fast");
+						$("#cancel").bind("click", function(){
+						$(".editRecurso").fadeOut("fast");
+						});
+					}
+					
 				});
 				$(".myButton").bind("click", function()
 				{	//funciones de elmininación
 					var id = $(this).attr("id");
-					ventanaConfirmacion();
+					ventanaConfirmacion("Está seguro de eliminar este registro?");
 								$(".BtnAlert").bind("click", function(){
 								var opcion = $(this).attr("id");
 								if(opcion=="ok"){
 									$.post( IP+"index.php/Educacion/eliminaRecurso", {1: id}).done(function(data){
-									window.location.href = IP+"/index.php/welcome/educacion";
+									listaProtocolos();
+									$(".VentanaConfirmacion").remove();
 									});
 								}else{
 									$(".VentanaConfirmacion").fadeOut("slow");
@@ -107,6 +140,9 @@ function listaRecs(){
 					
 				});
 			});
+
+
+
 }
 $(".pup").hide();
 $("#sombra").hide();
@@ -231,7 +267,7 @@ $("#p4").click(function(){
 								}
 								
 							});
-	});
+						});
 
    //Carga de textos públicos
    	  //carga contenido de la pagina de inicio
@@ -246,8 +282,18 @@ $("#p4").click(function(){
 	  $.post( IP+"index.php/Welcome/cargarContenido", { 0 : "PROTOCOLOS" } ).done(function(data){
 		$("#protocoloscontent").val(data);							
 		});
+	   //carga contenido de la pagina de recursos educativos
+	  $.post( IP+"index.php/Welcome/cargarContenido", { 0 : "RECURSOS" } ).done(function(data){
+		$("#educatext").val(data);							
+		});
 	  //fin de carga
 	  	//accion de botones de guardar cambios
+		$("#updeducativos").click(function(){
+			//actualiza contenido de la pagina de inicio
+			  $.post( IP+"index.php/Welcome/actualizarContenido", { 0: $("#educatext").val(), 1 : "RECURSOS" } ).done(function(data){
+				alert(data);							
+				});
+		});
 		$("#updinicio").click(function(){
 			//actualiza contenido de la pagina de inicio
 			  $.post( IP+"index.php/Welcome/actualizarContenido", { 0: $("#iniciocontent").val(), 1 : "INICIO" } ).done(function(data){
@@ -259,20 +305,14 @@ $("#p4").click(function(){
 			  $.post( IP+"index.php/Welcome/actualizarContenido", { 0: $("#museocontent").val(), 1 : "MUSEO" } ).done(function(data){
 				alert(data);							
 				});
-		});
 		$("#updprotocolos").click(function(){
 			//actualiza contenido de la pagina de inicio
 			  $.post( IP+"index.php/Welcome/actualizarContenido", { 0: $("#protocoloscontent").val(), 1 : "PROTOCOLOS" } ).done(function(data){
 				alert(data);							
 				});
 		});
-
-
-
-
-
-
 		function ventanaConfirmacion(texto){	
 			$("body").append('<div class="VentanaConfirmacion"> Confirmación <div class="cuerpo">'+texto+'<br /><br /><br /> <a href="#" class="BtnAlert" id="ok">Aceptar</a>	<a href="#" class="BtnAlert" id="cancel">Cancelar</a></div>');
 				}
 		});
+	});

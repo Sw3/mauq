@@ -115,6 +115,7 @@ class Welcome extends CI_Controller {
 	}
 	//actualiza el contenido de la zona publica
 	public function actualizarContenido(){
+		print (".");
 		$this->load->database();
 		$arr = array(
 					'CONTENIDO' => $_POST[0]
@@ -151,5 +152,33 @@ class Welcome extends CI_Controller {
 	public function logOut(){
 		session_start();
 		session_destroy();
+	}
+
+	//Función que lista los recursos en tabla para la zona publica
+	public function TablaProtocolos(){
+		$this->load->database();
+		$this->load->helper('url');
+		$query = $this->db->get_where('RECURSOS', array('ACTIVO' => $_POST[0]));
+		$this->db->order_by('FECHA', "desc");
+
+		echo "<center><table id='prototabla' width='100%' >
+			    <tr>
+			      <th>Nombre</th>
+			      <th>Descripción</th>	      
+			      <th>Fecha</th>
+			      <th>Descarga</th>
+			      <td></td>
+			      <td></td>
+			    </tr>";
+		foreach ($query->result() as $row)
+		{
+			echo '<tr style="text-align:center;">
+			      <td style="text-align:left;">'.$row->NOMBRE.'</td>
+			      <td>'.$row->DESCRIPCION.'</td>
+			      <td>'.$row->FECHA.'</td>
+			      <td><a href="'.base_url().$row->URL.'" target="_blank" ><img src="'.base_url().'sources/images/dl.png" width="20px"> </a></td>
+			    </tr>';
+		}
+		echo '</table></center>';
 	}
 }

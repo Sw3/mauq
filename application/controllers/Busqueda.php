@@ -100,7 +100,15 @@ class Busqueda extends CI_Controller {
 		}
 		
 	}
-
+	public function agregarFoto(){
+		$this->load->database();
+	$data = array(
+               'FOTO' => $_POST[2]
+            );
+		$this->db->where('ESPECIME_ID', $_POST[1]);
+		$this->db->update('ESPECIMEN', $data); 
+		echo "se ha actualizado la información";
+	}
 	//Función para mostrar detalle de registro en módulo de búsqueda
 	function detalle()
 	{
@@ -223,9 +231,10 @@ class Busqueda extends CI_Controller {
 		    </tr>
 		</table><br /><br /><br />
 			<div id="delete" class="myButton"  especimen="'.$row->ESPECIME_ID.'" >Eliminar éste especimen</div><br /><br />
-		<form>
-		Agregar foto: <input type="file" name="file" ><br />
-		<input type="hidden" name="especimenId" value="'.$row->ESPECIME_ID.'">
+		<form method="post" id="formulario" enctype="multypart/form-data">
+		Agregar foto: <input type="file" name="file" >
+		<input type="hidden" name="ruta" value="Especimenes/"><br />
+		<input type="hidden" name="especimenId" id="esp" value="'.$row->ESPECIME_ID.'">
 		</form>
 				</div>';
 	}

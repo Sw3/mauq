@@ -30,11 +30,21 @@ $(document).ready(function(){
 		});
 	  //carga contenido de la pagina de protocolos
 	  $.post( IP+"index.php/Welcome/cargarContenido", { 0 : "PROTOCOLOS" } ).done(function(data){
-		$("#protocoloscontent").html(data);							
+		$("#protocoloscontent").html(data);	
+			$.post( IP+"index.php/Welcome/TablaProtocolos", { 0 : '0' } ).done(function(data1){
+			$("#protocoloscontent").append(data1);	
+								
+		});					
 		});
 	  //carga contenido de la pagina de recursos
+	  $(".cont").css("text-align", "center");//centra el texto de la tabla 
+	  $("#prototabla").css("font-size", "12pt"); //organiza el tamaño de letra
 	  $.post( IP+"index.php/Welcome/cargarContenido", { 0 : "RECURSOS" } ).done(function(data){
-		$("#recursoscontent").html(data);							
+		$("#recursoscontent").html(data);	
+			$.post( IP+"index.php/Welcome/TablaProtocolos", { 0 : '1' } ).done(function(data1){
+			$("#recursoscontent").append(data1);	
+								
+		});							
 		});
 	  //funcion para inicio de sesion
 	  $(".acceso").click(function(){

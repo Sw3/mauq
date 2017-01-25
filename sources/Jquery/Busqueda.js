@@ -73,6 +73,43 @@ var IP= $("#footer").attr("name");
 				$.post( IP+"index.php/Busqueda/detalle", {1: id}).done(function(data){
 					//escribe los datos recuperados
 					$("#detalle").html(data);
+					$("input[name=file]").bind("change", function(){
+					ventanaConfirmacion("Esta seguro de agregar esta foto al especimen?");
+						$(".BtnAlert").bind("click", function(){
+								var opcion = $(this).attr("id");
+								//el usuario confirma el cambio
+								if(opcion=="ok"){
+									//carga la foto
+									var formData = new FormData($("#formulario")[0]);
+									var ruta = IP+"index.php/admin/upload";
+										$.ajax({
+											url: ruta,
+											type: "POST",
+											data: formData,
+											contentType: false,
+											processData: false,
+										}).done(function(data){
+											var foto= data;
+										$.post( IP+"index.php/Busqueda/agregarFoto", {1: $("#esp").val(), 2: foto}).done(function(data1){
+											alert(data1);
+											$(".VentanaConfirmacion").remove();
+								$("#pup").fadeOut();
+								$("#sombra").fadeOut("slow");
+								$("#detalle").fadeOut("slow");
+								buscar();
+
+										});
+
+										});
+
+								}else{
+									$(".VentanaConfirmacion").fadeOut("slow");
+								$(".VentanaConfirmacion").remove();
+								$("#pup").fadeOut();
+								}
+							});
+
+					});
 					//asigna funcionalida a la X de cerrar la ventana
 					$(".close").bind("click", function(){
 					$("#detalle").toggle("slow");
@@ -101,9 +138,7 @@ var IP= $("#footer").attr("name");
 							});
 
 					});
-					$("#edit").bind("click", function(){
-						alert($(this).attr("especimen"));
-					});
+					
 				});
 				//muestra el div de detalle con la información
 				$("#detalle").toggle("slow");

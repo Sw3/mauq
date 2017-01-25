@@ -61,8 +61,8 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 		<div class="Btns" id="updinicio"> Gurdar cambios</div>
 		</div>
 		<div class="sec" id="educa"><h3>Recursos educativos</h3>
-		<textarea cols="100" rows="20" id="iniciocontent"></textarea> <br />
-		<div class="Btns" id="updinicio"> Gurdar cambios</div>
+		<textarea cols="100" rows="20" id="educatext"></textarea> <br />
+		<div class="Btns" id="updeducativos"> Gurdar cambios</div>
 
 		<h3>Ingresar nuevo recurso educativo</h2>
 		<div class="Nuevorecurso"> 
@@ -100,16 +100,18 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 			<table>
 			    <tr>
 			      <td width="163"><label for="NomRec">Nombre del recuso</label></td>
-			      <td width="296"><input type="text" name="EdNomRec" id="NomRec" /></td>
+			      <td width="296"><input type="text" name="nnombre" id="nnombre" /></td>
 			    </tr>
 			    <tr>
 			      <td><label for="decrec">Descripción del recurso</label></td>
-			      <td><textarea name="decrec" id="Eddecrec" cols="45" rows="5"></textarea></td>
+			      <td><textarea name="ndesc" id="ndesc" cols="45" rows="5"></textarea></td>
 			    </tr>
 			    
 			    <tr>
 			      <td></td>
-			      <td><a class="edit_btn"> Guardar Cambios</a><a class="edit_btn" id="cancel"> Cancelar</a></td>
+			      <td><a class="edit_btn" id="confirma"> Guardar Cambios</a><a class="edit_btn" id="cancel"> Cancelar</a>
+			      <input type="hidden" name="ref" id="ref">
+			      </td>
 			    </tr>
 			 </table>
 			 
@@ -151,30 +153,6 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 			
 		</div>
 	</div>
-
-	<div class="editRecurso">
-		
-		
-			<table>
-			    <tr>
-			      <td width="163"><label for="NomRec">Nombre del recuso</label></td>
-			      <td width="296"><input type="text" name="EdNomRec" id="NomRec" /></td>
-			    </tr>
-			    <tr>
-			      <td><label for="decrec">Descripción del recurso</label></td>
-			      <td><textarea name="decrec" id="Eddecrec" cols="45" rows="5"></textarea></td>
-			    </tr>
-			    
-			    <tr>
-			      <td></td>
-			      <td><a class="edit_btn"> Guardar Cambios</a><a class="edit_btn" id="cancel"> Cancelar</a></td>
-			    </tr>
-			 </table>
-			 
-		
-	</div>
-
-
 
 	</div>
 

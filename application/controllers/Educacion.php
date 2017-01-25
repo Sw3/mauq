@@ -5,7 +5,15 @@ class Educacion extends CI_Controller {
 	
 	//Funcion que actualiza un registro de un recurso educativo
 	public function EditarRecurso(){
+	$this->load->database();
+	$data = array(
+               'NOMBRE' => $_POST[1],
+               'DESCRIPCION' => $_POST[2]
+            );
 
+$this->db->where('ID', $_POST[0]);
+$this->db->update('RECURSOS', $data); 
+echo "se ha actualizado la información";
 	}
 	//Función para cargar un archivo al directorio de recursos educativos e ingresarlo a la bd
 	public function nuevoRecurso(){
@@ -34,7 +42,6 @@ class Educacion extends CI_Controller {
 			      <td>Nombre</td>
 			      <td>Descripción</td>
 			      <td>Ubicación</td>
-			      <td>Visible</td>
 			      <td>fecha</td>
 			      <td></td>
 			      <td></td>
@@ -45,14 +52,10 @@ class Educacion extends CI_Controller {
 			      <td>'.$row->NOMBRE.'</td>
 			      <td>'.$row->DESCRIPCION.'</td>
 			      <td>'.$row->URL.'</td>';
-			      if($row->ACTIVO=='1'){
-			      	ECHO '<td><input type="checkbox" name="act" id="act" checked />';	
-			      }else{
-			      	ECHO '<td><input type="checkbox" name="act" id="act"  />';
-			      }
+			      
 			      echo '<td>'.$row->FECHA.'</td>
 			      <td><a class="myButton" id="'.$row->ID.'">Eliminar</a></td>
-			      <td><a class="edit_btn" id="eBtn">Editar</a></td>
+			      <td><a class="edit_btn" fn="edt" id="'.$row->ID.'" dc="'.$row->DESCRIPCION.'" nm="'.$row->NOMBRE.'" >Editar</a></td>
 			    </tr>';
 		}
 		echo '</table>';
