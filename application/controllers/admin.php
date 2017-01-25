@@ -227,15 +227,18 @@ class admin extends CI_Controller
 	}
 
 	public function upload(){
-		$file = $_FILES["file"];
+		foreach ($_FILES as $key => $value) {
+		$file = $_FILES[$key];
 		$nombre = $file["name"];
 		$rutaprov = $file["tmp_name"];
 		$carpeta = $_POST["ruta"];
 		$pos = strpos($nombre, ".");
 		$ext = substr($nombre, $pos);
-			$src = $carpeta.(date("Ynjhis")).$ext;
-			move_uploaded_file($rutaprov, $src);
-			echo $src;
+		$src = $carpeta.(date("Ynjhis")).$ext;
+		move_uploaded_file($rutaprov, $src);
+		echo $src;
+		}
+		
 	}
 
 	//Función para eliminar un especimen.

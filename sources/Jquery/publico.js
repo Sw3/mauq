@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-
+		var IP= $("#footer").attr("name");
 	$("#guardar").click(function(){
 		var formData = new FormData($("#formulario")[0]);
 
@@ -12,7 +12,102 @@ $(document).ready(function(){
 		
 	});
 
+//Oculta edicion de recurso educativo
+$(".editRecurso").hide();
 
+
+//lista documentos de protocolos
+listaProtocolos();
+function listaProtocolos(){
+	$.post( IP+"index.php/Educacion/ListarRecursos", {0:'0'}).done(function(data){
+				$("#tablaProts").html(data);
+				$("#eBtn").bind("click", function(){
+					$(".editRecurso").fadeIn("fast");
+				});
+				$(".myButton").bind("click", function()
+				{	//funciones de elmininación
+					var id = $(this).attr("id");
+					ventanaConfirmacion();
+								$(".BtnAlert").bind("click", function(){
+								var opcion = $(this).attr("id");
+								if(opcion=="ok"){
+									$.post( IP+"index.php/Educacion/eliminaRecurso", {1: id}).done(function(data){
+									listaProtocolos();
+									$(".VentanaConfirmacion").remove();
+									});
+								}else{
+									$(".VentanaConfirmacion").fadeOut("slow");
+								$(".VentanaConfirmacion").remove();
+								}
+								
+							});
+					
+				});
+			});
+}
+//registra protocolo
+$("#registrarProtocolo").click(function(){
+			var formData = new FormData($("#proto")[0]);
+			var ruta = IP+"index.php/admin/upload";
+				$.ajax({
+					url: ruta,
+					type: "POST",
+					data: formData,
+					contentType: false,
+					processData: false,
+				}).done(function(data){
+					foto = data;
+					$.post( IP+"index.php/Educacion/nuevoRecurso", { 0: $("#NomProt").val(), 1: $("#descProt").val(), 2: foto, 3 : '0' } ).done(function(data1){
+				listaProtocolos();
+				});
+				});
+		});
+
+//Registrar recurso educativo
+$("#registrar").click(function(){
+			var formData = new FormData($("#recursos")[0]);
+			var ruta = IP+"index.php/admin/upload";
+				$.ajax({
+					url: ruta,
+					type: "POST",
+					data: formData,
+					contentType: false,
+					processData: false,
+				}).done(function(data){
+					foto = data;
+					$.post( IP+"index.php/Educacion/nuevoRecurso", { 0: $("#NomRec").val(), 1: $("#decrec").val(), 2: foto, 3 : '1' } ).done(function(data1){
+				listaRecs();
+				});
+				});
+		});
+//Listar recursos educativos
+listaRecs();
+function listaRecs(){
+	$.post( IP+"index.php/Educacion/ListarRecursos", {0:'1'}).done(function(data){
+				$("#tablarecs").html(data);
+				$("#eBtn").bind("click", function(){
+					$(".editRecurso").fadeIn("fast");
+				});
+				$(".myButton").bind("click", function()
+				{	//funciones de elmininación
+					var id = $(this).attr("id");
+					ventanaConfirmacion();
+								$(".BtnAlert").bind("click", function(){
+								var opcion = $(this).attr("id");
+								if(opcion=="ok"){
+									$.post( IP+"index.php/Educacion/eliminaRecurso", {1: id}).done(function(data){
+									window.location.href = IP+"/index.php/welcome/educacion";
+									});
+								}else{
+									$(".VentanaConfirmacion").fadeOut("slow");
+								$(".VentanaConfirmacion").remove();
+								}
+								
+							});
+					
+				});
+			});
+}
 $(".pup").hide();
 $("#sombra").hide();
 var IP= $("#footer").attr("name");
@@ -23,6 +118,10 @@ var IP= $("#footer").attr("name");
 $("#p1").click(function(){
 	$(".sec").hide();
 	$("#inicial").fadeIn("fast");
+});
+$("#p5").click(function(){
+	$(".sec").hide();
+	$("#educa").fadeIn("fast");
 });
 
 //visibiliza pagina inicial

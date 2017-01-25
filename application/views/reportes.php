@@ -39,8 +39,7 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 		<div id="menubar">
 			<a href="<?php echo base_url(); ?>index.php/welcome/registro"><div class="menuItem">Nuevo Especimen</div></a>
 			<a href="<?php echo base_url(); ?>index.php/welcome/busqueda"><div class="menuItem">Búsqueda</div></a>
-			<a href="<?php echo base_url(); ?>index.php/welcome/educacion"><div class="menuItem">Educación</div></a>
-			<a href="<?php echo base_url(); ?>index.php/welcome/publico"><div class="menuItem">Información pública</div></a>
+			<a href="<?php echo base_url(); ?>index.php/welcome/publico"><div class="menuItem">Zona pública</div></a>
 			<a href="<?php echo base_url(); ?>index.php/welcome/reportes"><div class="menuItem">Reportes</div></a>
 		</div>
 	</div>

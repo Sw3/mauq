@@ -130,4 +130,39 @@ class Publico extends CI_Controller {
 				$this->db->where('ID', $_POST[1]);
 				$this->db->update('CAJON', $arr); 
 	}
+
+		//Función que lista los documentos de protocolos
+	public function ListarRecursos(){
+		$this->load->database();
+		$query = $this->db->get_where('RECURSOS', array('ACTIVO' =>0));
+		$this->db->order_by('FECHA', "desc");
+
+		echo "<table >
+			    <tr>
+			      <td>Nombre</td>
+			      <td>Descripción</td>
+			      <td>Ubicación</td>
+			      <td>Visible</td>
+			      <td>fecha</td>
+			      <td></td>
+			      <td></td>
+			    </tr>";
+		foreach ($query->result() as $row)
+		{
+			echo '<tr>
+			      <td>'.$row->NOMBRE.'</td>
+			      <td>'.$row->DESCRIPCION.'</td>
+			      <td>'.$row->URL.'</td>';
+			      if($row->ACTIVO=='1'){
+			      	ECHO '<td><input type="checkbox" name="act" id="act" checked />';	
+			      }else{
+			      	ECHO '<td><input type="checkbox" name="act" id="act"  />';
+			      }
+			      echo '<td>'.$row->FECHA.'</td>
+			      <td><a class="myButton" id="'.$row->ID.'">Eliminar</a></td>
+			      <td><a class="edit_btn" id="eBtn">Editar</a></td>
+			    </tr>';
+		}
+		echo '</table>';
+	}	
 }
