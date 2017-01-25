@@ -103,6 +103,7 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 			</form></center>
 			
 		</div>
+		<div class="lgin" id="closeSession">Cerrar sesión</div>
 	<div id="footer" name='<?php echo base_url(); ?>'>
 		<div id="cent">
 			<div class="leftp">

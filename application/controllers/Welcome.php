@@ -148,5 +148,8 @@ class Welcome extends CI_Controller {
 			return false;
 		}
 	}
-
+	public function logOut(){
+		session_start();
+		session_destroy();
+	}
 }

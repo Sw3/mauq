@@ -35,6 +35,7 @@ class Busqueda extends CI_Controller {
 		}
 		//carga la base de datos
 		$this->load->database();
+		$this->load->helper('url');
 		$query = $this->db->get_where('REGISTRO', $arr, 8, $_POST[2]);
 		//entrega los resultados
 		foreach ($query->result() as $row)
@@ -45,7 +46,16 @@ class Busqueda extends CI_Controller {
 				  <tr>
 				    <td width="118" class="title">Nombre cientifico</td>
 				    <td width="138" class="title">Orden</td>
-				    <td width="195" rowspan="6" bgcolor="#F9F7F7">&nbsp;</td>
+				    <td width="195" rowspan="6" bgcolor="#F9F7F7">
+				    ';
+				    if($row->FOTO==""){
+				    	echo " &nbsp;";
+				    }else{
+				    	echo '<img src="'.base_url().$row->FOTO.'" height="120">';
+				    }
+				   
+
+				    echo '</td>
 				  </tr>
 				  <tr>
 				    <td class="info">'. $row->NOMBRECIENTIFICO.'</td>
@@ -212,9 +222,7 @@ class Busqueda extends CI_Controller {
 			    echo'
 		    </tr>
 		</table><br /><br /><br />
-		
-		<div id="edit" class="edit_btn" especimen="'.$row->ESPECIME_ID.'" >Editar</div>	
-			<div id="delete" class="myButton"  especimen="'.$row->ESPECIME_ID.'" >Eliminar</div><br /><br />
+			<div id="delete" class="myButton"  especimen="'.$row->ESPECIME_ID.'" >Eliminar éste especimen</div><br /><br />
 		<form>
 		Agregar foto: <input type="file" name="file" ><br />
 		<input type="hidden" name="especimenId" value="'.$row->ESPECIME_ID.'">

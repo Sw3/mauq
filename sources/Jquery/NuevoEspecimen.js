@@ -82,7 +82,7 @@ $(document).ready(function(){
 				$("#c7").bind("click", function(){
 					addComboBox("gen", prompt("Ingrese el valor nuevo"));
 				});
-			});//----------------------------------------------------------------
+			});
 		$.post( IP+"index.php/admin/comboBox", { 1: "PAIS", 2: "pais", 3: "PAIS_ID", 4: "PAIS" } ).done(function(data){
 				$("#cb8").html(data+'<a class="edit_btn" id="c8">Otro</a>');
 				$("#c8").bind("click", function(){
@@ -144,7 +144,7 @@ $(document).ready(function(){
 			progreso--;
 			$('#'+progreso).fadeIn('slow');
 			}else{
-				//$(".sig").text("TERMINAR REGISTROO");
+
 			}
 				
 		});

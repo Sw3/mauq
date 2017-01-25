@@ -85,7 +85,7 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 	</div>
 		<div id="detalle"></div>
 		<div id="sombra"> <br /></div>
-
+<div class="lgin" id="closeSession">Cerrar sesión</div>
 		<div id="footer" name='<?php echo base_url(); ?>'>
 			<div id="cent">
 				<div class="leftp">

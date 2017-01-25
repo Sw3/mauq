@@ -51,7 +51,13 @@ $(document).ready(function(){
 	  $(".lgin").click(function(){
 	  	$(".logBox").toggle("slow");
 	  });
-
+	  $("#closeSession").click(function(){
+	  	if(confirm("Está seguro de cerrar sesion?")){
+			$.post( IP+"index.php/Welcome/logOut");
+	  		window.location.href = IP+"index.php/Welcome/registro";
+	  	}
+	  	
+	  });
 $(".env").click(function(){
 			var formData = new FormData($("#formulario")[0]);
 			var ruta = IP+"index.php/admin/upload";
@@ -67,7 +73,4 @@ $(".env").click(function(){
 			
 
 });
-
-
-
 });
