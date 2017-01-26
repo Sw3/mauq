@@ -17,7 +17,7 @@ echo "se ha actualizado la información";
 	}
 	//Función para cargar un archivo al directorio de recursos educativos e ingresarlo a la bd
 	public function nuevoRecurso(){
-		print_r($_POST);
+		
 		$this->load->database();
  				$hoy = getdate();
  				//Inserta en la base de datos la información
@@ -29,6 +29,7 @@ echo "se ha actualizado la información";
 					'FECHA' => date("d") . "/" . date("m") . "/" . date("Y")
 				);
 				$this->db->insert('RECURSOS', $arr); 
+				echo "El archivo ha sido cargado correctamente";
 	}
 
 	//Función que lista los recursos registrados hasta el momento

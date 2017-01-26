@@ -123,7 +123,7 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 		<div class="sec" id="deps"><h3>Protocolos</h3>
 
 		<textarea cols="100" rows="20" id="protocoloscontent"></textarea> <br />
-		<div class="Btns" id="updprotocolos"> Gurdar cambios</div>
+		<div class="Btns" id="PROTOC"> Gurdar cambios</div>
 
 		<h3>Ingresar nuevo Documento de protocolo</h2>
 		<div class="Nuevorecurso"> 
@@ -143,12 +143,12 @@ h3 { font-family: 'korinna_btregular', arial, serif; }
 			    </tr>
 			    <tr>
 			      <td></td>
-			      <td><div id="registrarProtocolo" class="edit_btn" >Registrar este protocolo</div></td>
+			      <td><div id="registrarProtocolo" id="confirma1" class="edit_btn" >Registrar este protocolo</div></td>
 			    </tr>
 			 </table>
 			 </form>
 		</div>
-		<h3>Administrar protocolos actuales actuales</h2>
+		<h3>Administrar protocolos actuales</h2>
 		<div class="Nuevorecurso" id="tablaProts"> 
 			
 		</div>

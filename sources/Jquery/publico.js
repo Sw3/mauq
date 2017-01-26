@@ -22,16 +22,20 @@ function listaProtocolos(){
 	$.post( IP+"index.php/Educacion/ListarRecursos", {0:'0'}).done(function(data){
 				$("#tablaProts").html(data);
 				$(".edit_btn").bind("click", function(){
-					var act =$(this).attr("fn");
-					if(act="edt"){
-						$("#ref").val($(this).attr("id"));
-						//carga los valores anteriores
-						$("#nnombre").val($(this).attr("nm"));
-						$("#ndesc").val($(this).attr("dc"));
-						$(".editRecurso").fadeIn("fast");
-						$("#cancel").bind("click", function(){
-						$(".editRecurso").fadeOut("fast");
-						});
+					if( $(this).attr("id").val()!="confirma" || $(this).attr("id").val()!="confirma1"  ){
+						var act =$(this).attr("fn");
+											if(act="edt"){
+												$("#ref").val($(this).attr("id"));
+												//carga los valores anteriores
+												$("#nnombre").val($(this).attr("nm"));
+												$("#ndesc").val($(this).attr("dc"));
+												$(".editRecurso").fadeIn("fast");
+												$("#cancel").bind("click", function(){
+												$(".editRecurso").fadeOut("fast");
+												});
+
+					}
+					
 					}
 					
 				});
@@ -80,6 +84,9 @@ $("#registrarProtocolo").click(function(){
 					foto = data;
 					$.post( IP+"index.php/Educacion/nuevoRecurso", { 0: $("#NomProt").val(), 1: $("#descProt").val(), 2: foto, 3 : '0' } ).done(function(data1){
 				listaProtocolos();
+				alert(data1);
+				$("#NomProt").val("");
+				$("#descProt").val("");
 				});
 				});
 		});
@@ -97,6 +104,9 @@ $("#registrar").click(function(){
 				}).done(function(data){
 					foto = data;
 					$.post( IP+"index.php/Educacion/nuevoRecurso", { 0: $("#NomRec").val(), 1: $("#decrec").val(), 2: foto, 3 : '1' } ).done(function(data1){
+				alert(data1);
+				$("#NomRec").val("");
+				$("#decrec").val("")
 				listaRecs();
 				});
 				});
@@ -107,16 +117,19 @@ function listaRecs(){
 	$.post( IP+"index.php/Educacion/ListarRecursos", {0:'1'}).done(function(data){
 				$("#tablarecs").html(data);
 				$(".edit_btn").bind("click", function(){
-					var act =$(this).attr("fn");
-					if(act="edt"){
-						$("#ref").val($(this).attr("id"));
-						//carga los valores anteriores
-						$("#nnombre").val($(this).attr("nm"));
-						$("#ndesc").val($(this).attr("dc"));
-						$(".editRecurso").fadeIn("fast");
-						$("#cancel").bind("click", function(){
-						$(".editRecurso").fadeOut("fast");
-						});
+					if( $(this).attr("id").val()!="confirma" || $(this).attr("id").val()!="confirma1"){
+						var act =$(this).attr("fn");
+											if(act="edt"){
+												$("#ref").val($(this).attr("id"));
+												//carga los valores anteriores
+												$("#nnombre").val($(this).attr("nm"));
+												$("#ndesc").val($(this).attr("dc"));
+												$(".editRecurso").fadeIn("fast");
+												$("#cancel").bind("click", function(){
+												$(".editRecurso").fadeOut("fast");
+												});
+					}
+					
 					}
 					
 				});
@@ -305,14 +318,16 @@ $("#p4").click(function(){
 			  $.post( IP+"index.php/Welcome/actualizarContenido", { 0: $("#museocontent").val(), 1 : "MUSEO" } ).done(function(data){
 				alert(data);							
 				});
-		$("#updprotocolos").click(function(){
+		function ventanaConfirmacion(texto){	
+			$("body").append('<div class="VentanaConfirmacion"> Confirmación <div class="cuerpo">'+texto+'<br /><br /><br /> <a href="#" class="BtnAlert" id="ok">Aceptar</a>	<a href="#" class="BtnAlert" id="cancel">Cancelar</a></div>');
+				}
+		});
+
+
+		$("#PROTOC").click(function(){
 			//actualiza contenido de la pagina de inicio
 			  $.post( IP+"index.php/Welcome/actualizarContenido", { 0: $("#protocoloscontent").val(), 1 : "PROTOCOLOS" } ).done(function(data){
 				alert(data);							
 				});
-		});
-		function ventanaConfirmacion(texto){	
-			$("body").append('<div class="VentanaConfirmacion"> Confirmación <div class="cuerpo">'+texto+'<br /><br /><br /> <a href="#" class="BtnAlert" id="ok">Aceptar</a>	<a href="#" class="BtnAlert" id="cancel">Cancelar</a></div>');
-				}
 		});
 	});
